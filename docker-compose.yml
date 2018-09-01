@@ -1,0 +1,13 @@
+version: '2'
+services:
+  amazonlinux1:
+    build:
+      context: .
+      dockerfile: Dockerfile-amazonlinux1
+    env_file: .env
+    user: ec2-user
+    tty: true
+    working_dir: /home/ec2-user
+    volumes:
+      - .:/home/ec2-user
+    command: sl
